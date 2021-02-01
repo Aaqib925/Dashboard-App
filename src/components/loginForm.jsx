@@ -28,8 +28,8 @@ const Login = () => {
   const paperStyle = {
     padding: 20,
     height: "80vh",
-    width: "50vh",
-    margin: "20px auto",
+    width: "300px",
+    margin: "2px auto",
   };
   const avatarStyle = { backgroundColor: "#303f9f" };
   const fieldStyle = { margin: "8px 0px" };
