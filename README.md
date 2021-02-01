@@ -3,7 +3,6 @@
 Dashboard project with with reactjs, material-ui and antd.js.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 [Deployed Link](http://aaqib925.github.io/Dashboard-App)
-https://user-images.githubusercontent.com/52782806/106456407-4edb9580-64af-11eb-877b-67622643f6bc.mp4
 
 ## Available Scripts
 
