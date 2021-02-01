@@ -45,6 +45,7 @@ const dashboardRoutes = [
     icon: Dashboard,
     component: DashboardPage,
     layout: "/admin",
+    items: [],
   },
   {
     path: "/user",
@@ -53,6 +54,7 @@ const dashboardRoutes = [
     icon: Person,
     component: UserProfile,
     layout: "/admin",
+    items: [],
   },
   {
     path: "/table",
@@ -61,6 +63,7 @@ const dashboardRoutes = [
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
+    items: [],
   },
   {
     path: "/typography",
@@ -69,6 +72,7 @@ const dashboardRoutes = [
     icon: LibraryBooks,
     component: Typography,
     layout: "/admin",
+    items: [],
   },
   {
     path: "/icons",
@@ -77,6 +81,7 @@ const dashboardRoutes = [
     icon: BubbleChart,
     component: Icons,
     layout: "/admin",
+    items: [],
   },
   {
     path: "/maps",
@@ -85,6 +90,7 @@ const dashboardRoutes = [
     icon: LocationOn,
     component: Maps,
     layout: "/admin",
+    items: [],
   },
   {
     path: "/notifications",
@@ -93,16 +99,106 @@ const dashboardRoutes = [
     icon: Notifications,
     component: NotificationsPage,
     layout: "/admin",
+    items: [],
   },
 
-  {
-    path: "/404",
-    name: "MENU",
-    rtlName: "پشتیبانی از راست به چپ",
-    icon: Language,
-    component: Menu,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/menu",
+  //   name: "MENU",
+  //   rtlName: "پشتیبانی از راست به چپ",
+  //   icon: Language,
+  //   component: Menu,
+  //   layout: "/admin",
+  //   items: [
+  //     {
+  //       path: "/menu",
+  //       name: "Nested 1",
+  //       rtlName: "پشتیبانی از راست به چپ",
+  //       icon: Language,
+  //       component: Menu,
+  //       layout: "/admin",
+  //     },
+  //     {
+  //       path: "/menu",
+  //       name: "Nested 2",
+  //       rtlName: "پشتیبانی از راست به چپ",
+  //       icon: Language,
+  //       component: Menu,
+  //       layout: "/admin",
+  //     },
+  //   ],
+  // },
+  [
+    {
+      icon: Language,
+      title: "Education",
+      items: [
+        {
+          title: "Technical Analysis",
+          items: [
+            {
+              title: "The Dow Theory",
+              to: "/thedowtheory",
+            },
+            {
+              title: "Charts & Chart Patterns",
+              to: "/chart",
+            },
+            {
+              title: "Trend & Trend Lines",
+              to: "/trendlines",
+            },
+            {
+              title: "Support & Resistance",
+              to: "/sandr",
+            },
+          ],
+        },
+        {
+          title: "Fundamental Analysis",
+          items: [
+            {
+              title: "The Dow Theory",
+              to: "/thedowtheory",
+            },
+            {
+              title: "Charts & Chart Patterns",
+              to: "/chart",
+            },
+            {
+              title: "Trend & Trend Lines",
+              to: "/trendlines",
+            },
+            {
+              title: "Support & Resistance",
+              to: "/sandr",
+            },
+          ],
+        },
+        {
+          title: "Elliot Wave Analysis",
+          items: [
+            {
+              title: "The Dow Theory",
+              to: "/thedowtheory",
+            },
+            {
+              title: "Charts & Chart Patterns",
+              to: "/chart",
+            },
+            {
+              title: "Trend & Trend Lines",
+              to: "/trendlines",
+            },
+            {
+              title: "Support & Resistance",
+              to: "/sandr",
+            },
+          ],
+        },
+      ],
+    },
+  ],
   // {
   //   path: "/upgrade-to-pro",
   //   name: "Upgrade To PRO",

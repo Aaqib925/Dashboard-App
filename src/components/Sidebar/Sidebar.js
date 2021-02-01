@@ -9,8 +9,11 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import Collapse from "@material-ui/core/Collapse";
+import MenuItem from "@material-ui/core/MenuItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
+import Menu from "../menu";
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
 import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
@@ -25,7 +28,8 @@ export default function Sidebar(props) {
   function activeRoute(routeName) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   }
-  const { color, logo, image, logoText, routes } = props;
+  console.log(items, "itmes", props);
+  const { color, logo, image, logoText, routes, items } = props;
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -74,6 +78,40 @@ export default function Sidebar(props) {
                 })}
                 disableTypography={true}
               />
+              {prop.items && prop.items.length > 0 ? (
+                // <>
+                //   <Collapse in={true} timeout="auto" unmountOnExit>
+                //     <List component="div" disablePadding>
+                //       {prop.items.map((child, key) => (
+                //         <NavLink
+                //           to={child.layout + child.path}
+                //           className={activePro + classes.item}
+                //           activeClassName="active"
+                //           key={key}
+                //         >
+                //           <div>{child.name}</div>
+                //         </NavLink>
+                //       ))}
+                //       {/* <Menu /> */}
+                //     </List>
+                //   </Collapse>
+                // </>
+
+                <React.Fragment>
+                  <ListItem button onClick={handleClick}>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.title} />
+                    {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                  </ListItem>
+                  <Collapse in={open} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                      {children.map((child, key) => (
+                        <MenuItem key={key} item={child} />
+                      ))}
+                    </List>
+                  </Collapse>
+                </React.Fragment>
+              ) : null}
             </ListItem>
           </NavLink>
         );

@@ -58,44 +58,6 @@ function getItems() {
           },
         ],
       },
-      {
-        id: 2,
-        title: "Apple",
-        items: [
-          {
-            id: 1,
-            name: "Mac",
-          },
-          {
-            id: 2,
-            name: "Iphone",
-            subitems: [
-              {
-                id: 1,
-                name: "Iphone 6",
-              },
-              {
-                id: 2,
-                name: "Iphone 10",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: 3,
-        title: "Uber",
-        items: [
-          {
-            id: 1,
-            name: "Eats",
-          },
-          {
-            id: 2,
-            name: "Freight",
-          },
-        ],
-      },
     ],
   };
   return json;
