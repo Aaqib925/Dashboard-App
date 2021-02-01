@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/Dashboard-App/static/css/main.a5babc6c.chunk.css",
+    "main.js": "/Dashboard-App/static/js/main.4f975afb.chunk.js",
+    "main.js.map": "/Dashboard-App/static/js/main.4f975afb.chunk.js.map",
+    "runtime-main.js": "/Dashboard-App/static/js/runtime-main.45aaf209.js",
+    "runtime-main.js.map": "/Dashboard-App/static/js/runtime-main.45aaf209.js.map",
+    "static/css/2.f5c5f1aa.chunk.css": "/Dashboard-App/static/css/2.f5c5f1aa.chunk.css",
+    "static/js/2.e0450f0c.chunk.js": "/Dashboard-App/static/js/2.e0450f0c.chunk.js",
+    "static/js/2.e0450f0c.chunk.js.map": "/Dashboard-App/static/js/2.e0450f0c.chunk.js.map",
+    "index.html": "/Dashboard-App/index.html",
+    "precache-manifest.37aae23cc168a5fca80961d3cf3db5a5.js": "/Dashboard-App/precache-manifest.37aae23cc168a5fca80961d3cf3db5a5.js",
+    "service-worker.js": "/Dashboard-App/service-worker.js",
+    "static/css/2.f5c5f1aa.chunk.css.map": "/Dashboard-App/static/css/2.f5c5f1aa.chunk.css.map",
+    "static/css/main.a5babc6c.chunk.css.map": "/Dashboard-App/static/css/main.a5babc6c.chunk.css.map",
+    "static/js/2.e0450f0c.chunk.js.LICENSE.txt": "/Dashboard-App/static/js/2.e0450f0c.chunk.js.LICENSE.txt",
+    "static/media/sidebar-1.jpg": "/Dashboard-App/static/media/sidebar-1.8e9f0a3c.jpg",
+    "static/media/sidebar-2.jpg": "/Dashboard-App/static/media/sidebar-2.310509c9.jpg",
+    "static/media/sidebar-3.jpg": "/Dashboard-App/static/media/sidebar-3.25031690.jpg",
+    "static/media/sidebar-4.jpg": "/Dashboard-App/static/media/sidebar-4.fc9cb053.jpg",
+    "static/media/user.png": "/Dashboard-App/static/media/user.1d542971.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.45aaf209.js",
+    "static/css/2.f5c5f1aa.chunk.css",
+    "static/js/2.e0450f0c.chunk.js",
+    "static/css/main.a5babc6c.chunk.css",
+    "static/js/main.4f975afb.chunk.js"
+  ]
+}
