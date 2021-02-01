@@ -2,9 +2,10 @@
 
 Dashboard project with with reactjs, material-ui and antd.js.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-<br/>
-[Deployed Link](http://aaqib925.github.io/Dashboard-App)
-<br/>
+<br/><br/>
+Deployed Link: (http://aaqib925.github.io/Dashboard-App)
+<br/><br/>
+![vlc-record-2021-02-01-17h20m07s-vlc-record-2021-02-01-17h17m08s-Final mp4- mp4-](https://user-images.githubusercontent.com/52782806/106458278-f8bc2180-64b1-11eb-8639-5ea9f789f6b2.gif)
 
 ## Available Scripts
 
