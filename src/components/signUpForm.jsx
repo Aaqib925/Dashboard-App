@@ -21,7 +21,7 @@ const SignUpForm = () => {
   const avatarStyle = { backgroundColor: "#303f9f" };
   const btnstyle = { margin: "8px 0" };
   const dispatch = useDispatch();
-  const fieldStyle = { margin: "10px 0px" };
+  const fieldStyle = { margin: "8px 0px" };
   const handleUserName = (e) => {
     setUserName(e.target.value);
   };

@@ -32,7 +32,7 @@ const Login = () => {
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#303f9f" };
-  const fieldStyle = { margin: "10px 0px" };
+  const fieldStyle = { margin: "8px 0px" };
   const btnstyle = { margin: "8px 0" };
 
   const handleUserName = (e) => {
