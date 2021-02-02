@@ -8,8 +8,19 @@ import GridContainer from "components/Grid/GridContainer.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
-
+import Select from "@material-ui/core/Select";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import { TextField } from "@material-ui/core";
 const styles = {
+  formControl: {
+    margin: "2px",
+    minWidth: 130,
+  },
+  selectEmpty: {
+    marginTop: "2px",
+  },
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -158,6 +169,9 @@ const rows2 = [
 
 export default function TableList() {
   const classes = useStyles();
+  const [columnToQuery, setColumnToQuery] = React.useState("name");
+  const [query, setQuery] = React.useState("");
+  const lowerCaseQuery = query.toLowerCase();
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
@@ -169,9 +183,43 @@ export default function TableList() {
             </p>
           </CardHeader>
           <CardBody>
+            <div>
+              <TextField
+                label="Query"
+                value={query}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                }}
+              />
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-simple-select-label">
+                  Column Name
+                </InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={columnToQuery}
+                  onChange={(e) => {
+                    setColumnToQuery(e.target.value);
+                    e.preventDefault();
+                  }}
+                >
+                  <MenuItem value={"name"}>Name</MenuItem>
+                  <MenuItem value={"country"}>Country</MenuItem>
+                  <MenuItem value={"city"}>City</MenuItem>
+                  <MenuItem value={"salary"}>Salary</MenuItem>
+                </Select>
+              </FormControl>
+            </div>
             <div style={{ height: 400, width: "100%" }}>
               <DataGrid
-                rows={rows2}
+                rows={
+                  query
+                    ? rows2.filter((x) =>
+                        x[columnToQuery].toLowerCase().includes(lowerCaseQuery)
+                      )
+                    : rows2
+                }
                 columns={column2}
                 pageSize={5}
                 checkboxSelection
