@@ -15,11 +15,11 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { TextField } from "@material-ui/core";
 const styles = {
   formControl: {
-    margin: "2px",
+    margin: "0px",
     minWidth: 130,
   },
   selectEmpty: {
-    marginTop: "2px",
+    marginTop: "0px",
   },
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
@@ -169,7 +169,7 @@ const rows2 = [
 
 export default function TableList() {
   const classes = useStyles();
-  const [columnToQuery, setColumnToQuery] = React.useState("name");
+  const [columnToQuery, setColumnToQuery] = React.useState("All");
   const [query, setQuery] = React.useState("");
   const lowerCaseQuery = query.toLowerCase();
   return (
@@ -205,6 +205,7 @@ export default function TableList() {
                     e.preventDefault();
                   }}
                 >
+                  <MenuItem value={"All"}>All</MenuItem>
                   <MenuItem value={"name"}>Name</MenuItem>
                   <MenuItem value={"country"}>Country</MenuItem>
                   <MenuItem value={"city"}>City</MenuItem>
@@ -217,7 +218,14 @@ export default function TableList() {
                 rows={
                   query
                     ? rows2.filter((x) =>
-                        x[columnToQuery].toLowerCase().includes(lowerCaseQuery)
+                        columnToQuery === "All"
+                          ? x.name.toLowerCase() === lowerCaseQuery ||
+                            x.country.toLowerCase() === lowerCaseQuery ||
+                            x.city.toLowerCase() === lowerCaseQuery ||
+                            x.salary.toLowerCase() === lowerCaseQuery
+                          : x[columnToQuery]
+                              .toLowerCase()
+                              .includes(lowerCaseQuery)
                       )
                     : rows2
                 }
