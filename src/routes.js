@@ -32,6 +32,8 @@ import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
 import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 // import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 // import RTLPage from "views/RTLPage/RTLPage.js";
@@ -102,103 +104,60 @@ const dashboardRoutes = [
     items: [],
   },
 
-  // {
-  //   path: "/menu",
-  //   name: "MENU",
-  //   rtlName: "پشتیبانی از راست به چپ",
-  //   icon: Language,
-  //   component: Menu,
-  //   layout: "/admin",
-  //   items: [
-  //     {
-  //       path: "/menu",
-  //       name: "Nested 1",
-  //       rtlName: "پشتیبانی از راست به چپ",
-  //       icon: Language,
-  //       component: Menu,
-  //       layout: "/admin",
-  //     },
-  //     {
-  //       path: "/menu",
-  //       name: "Nested 2",
-  //       rtlName: "پشتیبانی از راست به چپ",
-  //       icon: Language,
-  //       component: Menu,
-  //       layout: "/admin",
-  //     },
-  //   ],
-  // },
-  [
-    {
-      icon: Language,
-      title: "Education",
-      items: [
-        {
-          title: "Technical Analysis",
-          items: [
-            {
-              title: "The Dow Theory",
-              to: "/thedowtheory",
-            },
-            {
-              title: "Charts & Chart Patterns",
-              to: "/chart",
-            },
-            {
-              title: "Trend & Trend Lines",
-              to: "/trendlines",
-            },
-            {
-              title: "Support & Resistance",
-              to: "/sandr",
-            },
-          ],
-        },
-        {
-          title: "Fundamental Analysis",
-          items: [
-            {
-              title: "The Dow Theory",
-              to: "/thedowtheory",
-            },
-            {
-              title: "Charts & Chart Patterns",
-              to: "/chart",
-            },
-            {
-              title: "Trend & Trend Lines",
-              to: "/trendlines",
-            },
-            {
-              title: "Support & Resistance",
-              to: "/sandr",
-            },
-          ],
-        },
-        {
-          title: "Elliot Wave Analysis",
-          items: [
-            {
-              title: "The Dow Theory",
-              to: "/thedowtheory",
-            },
-            {
-              title: "Charts & Chart Patterns",
-              to: "/chart",
-            },
-            {
-              title: "Trend & Trend Lines",
-              to: "/trendlines",
-            },
-            {
-              title: "Support & Resistance",
-              to: "/sandr",
-            },
-          ],
-        },
-      ],
-    },
-  ],
+  {
+    path: "/menu",
+    name: "MENU",
+    icon: ExpandMoreIcon,
+    icon2: ExpandLessIcon,
+    rtlName: "پشتیبانی از راست به چپ",
+    component: Menu,
+    layout: "/admin",
+    items: [
+      {
+        path: "/menu",
+        name: "Nested 1",
+        rtlName: "پشتیبانی از راست به چپ",
+        icon: Language,
+        component: Menu,
+        layout: "/admin",
+      },
+      {
+        path: "/menu",
+        name: "Nested 2",
+        rtlName: "پشتیبانی از راست به چپ",
+        icon: Language,
+        component: Menu,
+        layout: "/admin",
+      },
+    ],
+  },
+  {
+    path: "/menu",
+    name: "MENU 2",
+    rtlName: "پشتیبانی از راست به چپ",
+    icon: ExpandMoreIcon,
+    icon2: ExpandLessIcon,
+    component: Menu,
+    layout: "/admin",
+    items: [
+      {
+        path: "/menu",
+        name: "Nested Menu 1",
+        rtlName: "پشتیبانی از راست به چپ",
+        icon: Language,
+        component: Menu,
+        layout: "/admin",
+      },
+      {
+        path: "/menu",
+        name: "Nested Menu 2",
+        rtlName: "پشتیبانی از راست به چپ",
+        icon: Language,
+        component: Menu,
+        layout: "/admin",
+      },
+    ],
+  },
   // {
   //   path: "/upgrade-to-pro",
   //   name: "Upgrade To PRO",

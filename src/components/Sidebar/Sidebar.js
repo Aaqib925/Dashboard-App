@@ -3,6 +3,7 @@ import React from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -13,7 +14,9 @@ import Collapse from "@material-ui/core/Collapse";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
-import Menu from "../menu";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
 import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
@@ -24,12 +27,14 @@ const useStyles = makeStyles(styles);
 
 export default function Sidebar(props) {
   const classes = useStyles();
+  // const [open, setOpen] = useState(false);
   // verifies if routeName is the one active (in browser input)
   function activeRoute(routeName) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
   }
-  console.log(items, "itmes", props);
+  // console.log(items, "itmes", props);
   const { color, logo, image, logoText, routes, items } = props;
+
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -48,73 +53,146 @@ export default function Sidebar(props) {
         const whiteFontClasses = classNames({
           [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path),
         });
-        return (
-          <NavLink
-            to={prop.layout + prop.path}
-            className={activePro + classes.item}
-            activeClassName="active"
-            key={key}
-          >
-            <ListItem button className={classes.itemLink + listItemClasses}>
-              {typeof prop.icon === "string" ? (
-                <Icon
-                  className={classNames(classes.itemIcon, whiteFontClasses, {
-                    [classes.itemIconRTL]: props.rtlActive,
+
+        if (prop.items && prop.items.length === 0) {
+          return (
+            <NavLink
+              to={prop.layout + prop.path}
+              className={activePro + classes.item}
+              activeClassName="active"
+              key={key}
+            >
+              <ListItem button className={classes.itemLink + listItemClasses}>
+                {typeof prop.icon === "string" ? (
+                  <Icon
+                    className={classNames(classes.itemIcon, whiteFontClasses, {
+                      [classes.itemIconRTL]: props.rtlActive,
+                    })}
+                  >
+                    {prop.icon}
+                  </Icon>
+                ) : (
+                  <prop.icon
+                    className={classNames(classes.itemIcon, whiteFontClasses, {
+                      [classes.itemIconRTL]: props.rtlActive,
+                    })}
+                  />
+                )}
+                <ListItemText
+                  primary={props.rtlActive ? prop.rtlName : prop.name}
+                  className={classNames(classes.itemText, whiteFontClasses, {
+                    [classes.itemTextRTL]: props.rtlActive,
                   })}
-                >
-                  {prop.icon}
-                </Icon>
-              ) : (
-                <prop.icon
-                  className={classNames(classes.itemIcon, whiteFontClasses, {
-                    [classes.itemIconRTL]: props.rtlActive,
-                  })}
+                  disableTypography={true}
                 />
-              )}
-              <ListItemText
-                primary={props.rtlActive ? prop.rtlName : prop.name}
-                className={classNames(classes.itemText, whiteFontClasses, {
-                  [classes.itemTextRTL]: props.rtlActive,
-                })}
-                disableTypography={true}
-              />
-              {prop.items && prop.items.length > 0 ? (
-                // <>
-                //   <Collapse in={true} timeout="auto" unmountOnExit>
-                //     <List component="div" disablePadding>
-                //       {prop.items.map((child, key) => (
-                //         <NavLink
-                //           to={child.layout + child.path}
-                //           className={activePro + classes.item}
-                //           activeClassName="active"
-                //           key={key}
-                //         >
-                //           <div>{child.name}</div>
-                //         </NavLink>
-                //       ))}
-                //       {/* <Menu /> */}
-                //     </List>
-                //   </Collapse>
-                // </>
+              </ListItem>
+            </NavLink>
+          );
+        } else if (prop.items && prop.items.length > 0) {
+          const [open, setOpen] = useState(false);
+          const handleClick = () => {
+            setOpen((prev) => !prev);
+          };
+          return (
+            <NavLink
+              to={prop.layout + prop.path}
+              className={activePro + classes.item}
+              activeClassName="active"
+              key={key}
+            >
+              <ListItem
+                button
+                onClick={handleClick}
+                className={classes.itemLink + listItemClasses}
+              >
+                {open ? (
+                  <prop.icon2
+                    className={classNames(classes.itemIcon, whiteFontClasses, {
+                      [classes.itemIconRTL]: props.rtlActive,
+                    })}
+                  />
+                ) : (
+                  <prop.icon
+                    className={classNames(classes.itemIcon, whiteFontClasses, {
+                      [classes.itemIconRTL]: props.rtlActive,
+                    })}
+                  />
+                )}
+                <ListItemText
+                  primary={props.rtlActive ? prop.rtlName : prop.name}
+                  className={classNames(classes.itemText, whiteFontClasses, {
+                    [classes.itemTextRTL]: props.rtlActive,
+                  })}
+                  disableTypography={true}
+                />
 
                 <React.Fragment>
-                  <ListItem button onClick={handleClick}>
-                    <ListItemIcon>{item.icon}</ListItemIcon>
-                    <ListItemText primary={item.title} />
-                    {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                  </ListItem>
                   <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                      {children.map((child, key) => (
-                        <MenuItem key={key} item={child} />
+                      {prop.items.map((child, key) => (
+                        <NavLink
+                          to={child.layout + child.path}
+                          className={activePro + classes.item}
+                          activeClassName="active"
+                          key={key}
+                        >
+                          <NavLink
+                            to={child.layout + child.path}
+                            className={activePro + classes.item}
+                            activeClassName="active"
+                            key={key}
+                          >
+                            <ListItem
+                              button
+                              className={classes.itemLink + listItemClasses}
+                            >
+                              {typeof child.icon === "string" ? (
+                                <Icon
+                                  className={classNames(
+                                    classes.itemIcon,
+                                    whiteFontClasses,
+                                    {
+                                      [classes.itemIconRTL]: child.rtlActive,
+                                    }
+                                  )}
+                                >
+                                  {child.icon}
+                                </Icon>
+                              ) : (
+                                <child.icon
+                                  className={classNames(
+                                    classes.itemIcon,
+                                    whiteFontClasses,
+                                    {
+                                      [classes.itemIconRTL]: child.rtlActive,
+                                    }
+                                  )}
+                                />
+                              )}
+                              <ListItemText
+                                primary={
+                                  child.rtlActive ? child.rtlName : child.name
+                                }
+                                className={classNames(
+                                  classes.itemText,
+                                  whiteFontClasses,
+                                  {
+                                    [classes.itemTextRTL]: child.rtlActive,
+                                  }
+                                )}
+                                disableTypography={true}
+                              />
+                            </ListItem>
+                          </NavLink>
+                        </NavLink>
                       ))}
                     </List>
                   </Collapse>
                 </React.Fragment>
-              ) : null}
-            </ListItem>
-          </NavLink>
-        );
+              </ListItem>
+            </NavLink>
+          );
+        }
       })}
     </List>
   );

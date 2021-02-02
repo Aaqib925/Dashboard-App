@@ -174,6 +174,7 @@ const sidebarStyle = (theme) => ({
   },
   itemText: {
     ...defaultFont,
+
     margin: "0",
     lineHeight: "30px",
     fontSize: "14px",
