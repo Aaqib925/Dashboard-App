@@ -184,6 +184,7 @@ export default function TableList() {
           </CardHeader>
           <CardBody>
             <div>
+              <h3>Search Record </h3>
               <TextField
                 label="Query"
                 value={query}
