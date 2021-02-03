@@ -12,10 +12,11 @@ const DeleteUser = () => {
     const cloneData = [...Store.getState().createUserReducer];
     const filtered = cloneData.filter(
       (x) =>
-        x.firstName !== StoreData.firstName &&
-        x.lastName !== StoreData.lastName &&
+        x.firstName !== StoreData.firstName ||
+        x.lastName !== StoreData.lastName ||
         x.email !== StoreData.email
     );
+
     updateUser(dispatch, filtered);
   };
   return (
