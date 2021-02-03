@@ -23,6 +23,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(true);
+  const [renderMessage, setRenderMessage] = useState(true);
   const dispatch = useDispatch();
   const StoreData = Store.getState().signUpReducer;
   const paperStyle = {
@@ -65,8 +66,9 @@ const Login = () => {
       );
     });
     if (result === undefined) {
-      alert("Account doesn't exist, Please Sign up");
+      setRenderMessage(false);
     } else {
+      setRenderMessage(true);
       dispatch(register({ userName, password, email }));
       pushHistory();
     }
@@ -133,7 +135,13 @@ const Login = () => {
         </Typography>
         <Typography>
           {" "}
-          Do you have an account ?<Link href="#">Sign Up</Link>
+          {renderMessage ? (
+            ""
+          ) : (
+            <p>
+              Your account doesn't exist, Please <Link>Sign Up</Link>
+            </p>
+          )}
         </Typography>
       </Paper>
     </Grid>

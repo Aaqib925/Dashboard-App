@@ -10,6 +10,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(true);
+  const [renderMessage, setRenderMessage] = useState(false);
   const storeData = Store.getState().signUpReducer;
   const paperStyle = {
     padding: 20,
@@ -61,6 +62,7 @@ const SignUpForm = () => {
     setUserName("");
     setEmail("");
     setPassword("");
+    setRenderMessage(true);
   };
   return (
     <div>
@@ -122,6 +124,7 @@ const SignUpForm = () => {
           >
             Register
           </Button>
+          {renderMessage ? <p>User Registered</p> : ""}
         </Paper>
       </Grid>
     </div>
