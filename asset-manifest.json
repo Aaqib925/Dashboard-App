@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Dashboard-App/static/css/main.a5babc6c.chunk.css",
-    "main.js": "/Dashboard-App/static/js/main.53d3ee4f.chunk.js",
-    "main.js.map": "/Dashboard-App/static/js/main.53d3ee4f.chunk.js.map",
+    "main.js": "/Dashboard-App/static/js/main.e17329a5.chunk.js",
+    "main.js.map": "/Dashboard-App/static/js/main.e17329a5.chunk.js.map",
     "runtime-main.js": "/Dashboard-App/static/js/runtime-main.984de28d.js",
     "runtime-main.js.map": "/Dashboard-App/static/js/runtime-main.984de28d.js.map",
     "static/css/2.83fe24e5.chunk.css": "/Dashboard-App/static/css/2.83fe24e5.chunk.css",
@@ -15,7 +15,7 @@
     "static/js/5.5dbe2c62.chunk.js": "/Dashboard-App/static/js/5.5dbe2c62.chunk.js",
     "static/js/5.5dbe2c62.chunk.js.map": "/Dashboard-App/static/js/5.5dbe2c62.chunk.js.map",
     "index.html": "/Dashboard-App/index.html",
-    "precache-manifest.2507ce95450d0a073964e51ab1beebe8.js": "/Dashboard-App/precache-manifest.2507ce95450d0a073964e51ab1beebe8.js",
+    "precache-manifest.975c2b3eaa96921869b91b5a32c88d1f.js": "/Dashboard-App/precache-manifest.975c2b3eaa96921869b91b5a32c88d1f.js",
     "service-worker.js": "/Dashboard-App/service-worker.js",
     "static/css/2.83fe24e5.chunk.css.map": "/Dashboard-App/static/css/2.83fe24e5.chunk.css.map",
     "static/css/main.a5babc6c.chunk.css.map": "/Dashboard-App/static/css/main.a5babc6c.chunk.css.map",
@@ -33,6 +33,6 @@
     "static/css/2.83fe24e5.chunk.css",
     "static/js/2.edfb47f8.chunk.js",
     "static/css/main.a5babc6c.chunk.css",
-    "static/js/main.53d3ee4f.chunk.js"
+    "static/js/main.e17329a5.chunk.js"
   ]
 }
