@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Grid, TextField, Button } from "@material-ui/core";
 import Store from "../../store/store";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { updateUser } from "../../actions/createUser";
 const EditUser = () => {
@@ -115,8 +114,12 @@ const EditUser = () => {
         >
           Confirm changes
         </Button>
-        <Button variant="outlined" color="primary">
-          <Link to="admin/user">Go Back</Link>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => History.push("/admin/user")}
+        >
+          Go back
         </Button>
       </Grid>
     </div>

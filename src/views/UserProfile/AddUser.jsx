@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createUser } from "../../actions/createUser";
 import { editUser } from "../../actions/editUserAction";
 const AddUser = () => {
@@ -127,8 +127,12 @@ const AddUser = () => {
         >
           Add User
         </Button>
-        <Button variant="outlined" color="primary">
-          <Link to="admin/user">Go Back</Link>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => History.push("/admin/user")}
+        >
+          Go back
         </Button>
       </Grid>
     </div>

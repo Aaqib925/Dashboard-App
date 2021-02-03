@@ -1,7 +1,6 @@
 import React from "react";
 import Store from "../../store/store";
 import { Grid, Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../actions/createUser";
 import { useHistory } from "react-router-dom";
@@ -46,8 +45,12 @@ const DeleteUser = () => {
           Delete User
         </Button>
 
-        <Button variant="outlined" color="primary">
-          <Link to="admin/user">Go Back</Link>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => History.push("/admin/user")}
+        >
+          Go back
         </Button>
       </Grid>
     </div>
