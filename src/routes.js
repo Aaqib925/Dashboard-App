@@ -27,6 +27,9 @@ import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
+import AddUser from "views/UserProfile/AddUser";
+import EditUser from "views/UserProfile/editForm";
+import DeleteUser from "views/UserProfile/deleteUser";
 import TableList from "views/TableList/TableList.js";
 import Typography from "views/Typography/Typography.js";
 import Icons from "views/Icons/Icons.js";
@@ -48,6 +51,7 @@ const dashboardRoutes = [
     component: DashboardPage,
     layout: "/admin",
     items: [],
+    visible: true,
   },
   {
     path: "/user",
@@ -57,6 +61,37 @@ const dashboardRoutes = [
     component: UserProfile,
     layout: "/admin",
     items: [],
+    visible: true,
+  },
+  {
+    path: "/addUser",
+    name: "Add User",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: AddUser,
+    layout: "/admin",
+    items: [],
+    visible: false,
+  },
+  {
+    path: "/editUser",
+    name: "Edit User",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: EditUser,
+    layout: "/admin",
+    items: [],
+    visible: false,
+  },
+  {
+    path: "/deleteUser",
+    name: "Delete User",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: DeleteUser,
+    layout: "/admin",
+    items: [],
+    visible: false,
   },
   {
     path: "/table",
@@ -66,6 +101,7 @@ const dashboardRoutes = [
     component: TableList,
     layout: "/admin",
     items: [],
+    visible: true,
   },
   {
     path: "/typography",
@@ -75,6 +111,7 @@ const dashboardRoutes = [
     component: Typography,
     layout: "/admin",
     items: [],
+    visible: true,
   },
   {
     path: "/icons",
@@ -84,6 +121,7 @@ const dashboardRoutes = [
     component: Icons,
     layout: "/admin",
     items: [],
+    visible: true,
   },
   {
     path: "/maps",
@@ -93,6 +131,7 @@ const dashboardRoutes = [
     component: Maps,
     layout: "/admin",
     items: [],
+    visible: true,
   },
   {
     path: "/notifications",
@@ -102,6 +141,7 @@ const dashboardRoutes = [
     component: NotificationsPage,
     layout: "/admin",
     items: [],
+    visible: true,
   },
 
   {
@@ -111,6 +151,7 @@ const dashboardRoutes = [
     icon2: ExpandLessIcon,
     rtlName: "پشتیبانی از راست به چپ",
     component: Menu,
+    visible: true,
     layout: "/admin",
     items: [
       {
@@ -119,6 +160,7 @@ const dashboardRoutes = [
         rtlName: "پشتیبانی از راست به چپ",
         icon: Language,
         component: Menu,
+        visible: true,
         layout: "/admin",
       },
       {
@@ -127,6 +169,7 @@ const dashboardRoutes = [
         rtlName: "پشتیبانی از راست به چپ",
         icon: Language,
         component: Menu,
+        visible: true,
         layout: "/admin",
       },
     ],
@@ -138,6 +181,7 @@ const dashboardRoutes = [
     icon: ExpandMoreIcon,
     icon2: ExpandLessIcon,
     component: Menu,
+    visible: true,
     layout: "/admin",
     items: [
       {
@@ -146,6 +190,7 @@ const dashboardRoutes = [
         rtlName: "پشتیبانی از راست به چپ",
         icon: Language,
         component: Menu,
+        visible: true,
         layout: "/admin",
       },
       {
@@ -154,6 +199,7 @@ const dashboardRoutes = [
         rtlName: "پشتیبانی از راست به چپ",
         icon: Language,
         component: Menu,
+        visible: true,
         layout: "/admin",
       },
     ],

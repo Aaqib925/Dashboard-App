@@ -54,7 +54,7 @@ export default function Sidebar(props) {
           [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path),
         });
 
-        if (prop.items && prop.items.length === 0) {
+        if (prop.visible && prop.items && prop.items.length === 0) {
           return (
             <NavLink
               to={prop.layout + prop.path}
