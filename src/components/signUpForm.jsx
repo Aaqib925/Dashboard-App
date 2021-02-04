@@ -55,7 +55,7 @@ const SignUpForm = () => {
     setEmail(e.target.value);
   };
   const openButton = () => {
-    return validUserName && validEmail;
+    return userName !== "" && password !== "" && validUserName && validEmail;
   };
   const handleRegister = () => {
     signUp(dispatch, { userName, password, email });

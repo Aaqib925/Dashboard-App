@@ -77,6 +77,16 @@ const Login = () => {
     <Grid>
       <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
+          <Typography>
+            {" "}
+            {renderMessage ? (
+              ""
+            ) : (
+              <p>
+                Your account doesn't exist, Please <Link>Sign Up</Link>
+              </p>
+            )}
+          </Typography>
           <Avatar style={avatarStyle}>
             <AccountCircleIcon />
           </Avatar>
@@ -132,16 +142,6 @@ const Login = () => {
         </Button>
         <Typography>
           <Link href="#">Forgot password ?</Link>
-        </Typography>
-        <Typography>
-          {" "}
-          {renderMessage ? (
-            ""
-          ) : (
-            <p>
-              Your account doesn't exist, Please <Link>Sign Up</Link>
-            </p>
-          )}
         </Typography>
       </Paper>
     </Grid>
