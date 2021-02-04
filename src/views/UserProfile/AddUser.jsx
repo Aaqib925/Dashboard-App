@@ -5,12 +5,15 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useHistory } from "react-router-dom";
 import { createUser } from "../../actions/createUser";
-import { editUser, deleteUser } from "../../actions/editUserAction";
+import { editUser } from "../../actions/editUserAction";
+import { deleteUser } from "../../actions/deleteAction";
+import Store from "../../store/store";
 const AddUser = () => {
   const History = useHistory();
-  const [firstName, setFirstName] = useState("Test");
-  const [lastName, setLastName] = useState("User");
-  const [email, setEmail] = useState("testUser@gmail.com");
+  const StoreData = Store.getState().editUserReducer;
+  const [firstName, setFirstName] = useState(StoreData.firstName);
+  const [lastName, setLastName] = useState(StoreData.lastName);
+  const [email, setEmail] = useState(StoreData.email);
   const [validEmail, setValidEmail] = useState(true);
   const dispatch = useDispatch();
   const handleUserName = (e) => {
@@ -19,7 +22,12 @@ const AddUser = () => {
   const handleLastName = (e) => {
     setLastName(e.target.value);
   };
-
+  const changeValues = () => {
+    const StoreData = Store.getState().editUserReducer;
+    setFirstName(StoreData.firstName);
+    setLastName(StoreData.lastName);
+    setEmail(StoreData.email);
+  };
   const validateEmail = () => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -40,6 +48,7 @@ const AddUser = () => {
           <EditIcon
             onClick={() => {
               dispatch(editUser({ firstName, lastName, email }));
+              changeValues();
               History.push("/admin/editUser");
             }}
           />

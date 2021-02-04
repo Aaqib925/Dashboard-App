@@ -3,7 +3,6 @@ import MaterialTable from "material-table";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 import Store from "../../store/store";
-
 const Table = () => {
   const StoreData = Store.getState().createUserReducer;
   const History = useHistory();

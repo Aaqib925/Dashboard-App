@@ -1,4 +1,4 @@
-import { DELETE_USER } from "../actions/editUserAction";
+import { DELETE_USER } from "../actions/deleteAction";
 const initialState = {
   firstName: "",
   lastName: "",

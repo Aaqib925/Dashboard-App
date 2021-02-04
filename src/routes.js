@@ -55,7 +55,7 @@ const dashboardRoutes = [
   },
   {
     path: "/user",
-    name: "User Settings",
+    name: "Users",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: UserProfile,
@@ -65,7 +65,7 @@ const dashboardRoutes = [
   },
   {
     path: "/addUser",
-    name: "Add User",
+    name: "Users",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: AddUser,
@@ -75,7 +75,7 @@ const dashboardRoutes = [
   },
   {
     path: "/editUser",
-    name: "Edit User",
+    name: "Users",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: EditUser,
@@ -85,7 +85,7 @@ const dashboardRoutes = [
   },
   {
     path: "/deleteUser",
-    name: "Delete User",
+    name: "Users",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: DeleteUser,
@@ -155,7 +155,7 @@ const dashboardRoutes = [
     layout: "/admin",
     items: [
       {
-        path: "/menu",
+        path: "/nested1",
         name: "Nested 1",
         rtlName: "پشتیبانی از راست به چپ",
         icon: Language,
@@ -164,7 +164,7 @@ const dashboardRoutes = [
         layout: "/admin",
       },
       {
-        path: "/menu",
+        path: "/nested2",
         name: "Nested 2",
         rtlName: "پشتیبانی از راست به چپ",
         icon: Language,

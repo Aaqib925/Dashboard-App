@@ -32,7 +32,6 @@ const EditUser = () => {
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
-
   const handleRegister = () => {
     const userData = Store.getState().createUserReducer;
     const indexOfData = userData.findIndex(

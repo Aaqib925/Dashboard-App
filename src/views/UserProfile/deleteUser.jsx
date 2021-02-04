@@ -31,6 +31,9 @@ const DeleteUser = () => {
       <Grid>
         <Grid align="left">
           <h1>Are you sure? </h1>
+          <h1>{StoreData.firstName}</h1>
+          <h1>{StoreData.lastName}</h1>
+          <h1>{StoreData.email}</h1>
         </Grid>
 
         <Button
