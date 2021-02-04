@@ -4,10 +4,11 @@ import { Grid, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../actions/createUser";
 import { useHistory } from "react-router-dom";
+
 const DeleteUser = () => {
   const History = useHistory();
   const dispatch = useDispatch();
-  const StoreData = Store.getState().editUserReducer;
+  const StoreData = Store.getState().deleteReducer;
   const handleDelete = () => {
     const cloneData = [...Store.getState().createUserReducer];
     const filtered = cloneData.filter(
@@ -29,11 +30,9 @@ const DeleteUser = () => {
     >
       <Grid>
         <Grid align="left">
-          <h1>Delete User</h1>
+          <h1>Are you sure? </h1>
         </Grid>
-        <h2>First Name: {StoreData.firstName}</h2>
-        <h2>Last Name: {StoreData.lastName}</h2>
-        <h2>Email: {StoreData.email}</h2>
+
         <Button
           type="submit"
           color="secondary"

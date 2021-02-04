@@ -1,5 +1,4 @@
 import { EDIT_USER } from "../actions/editUserAction";
-
 const initialState = {
   firstName: "",
   lastName: "",

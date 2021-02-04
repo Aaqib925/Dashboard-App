@@ -1,4 +1,4 @@
-import { UPDATE_USERS, DELETE_USER } from "actions/createUser";
+import { UPDATE_USERS } from "actions/createUser";
 
 let lastID = 0;
 
@@ -18,9 +18,6 @@ const createUserReducer = (state = [], action) => {
     case UPDATE_USERS:
       // console.log(action.payload, " payload set");
       return [...action.payload];
-    case DELETE_USER:
-      // console.log(action.payload);
-      return action.payload;
     default:
       return state;
   }

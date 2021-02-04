@@ -1,22 +1,18 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button } from "@material-ui/core";
-// import Store from "../../store/store";
 import { useDispatch } from "react-redux";
 import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useHistory } from "react-router-dom";
 import { createUser } from "../../actions/createUser";
-import { editUser } from "../../actions/editUserAction";
+import { editUser, deleteUser } from "../../actions/editUserAction";
 const AddUser = () => {
   const History = useHistory();
   const [firstName, setFirstName] = useState("Test");
   const [lastName, setLastName] = useState("User");
   const [email, setEmail] = useState("testUser@gmail.com");
   const [validEmail, setValidEmail] = useState(true);
-  const btnstyle = { margin: "8px 0" };
   const dispatch = useDispatch();
-  const fieldStyle = { margin: "10px 0px" };
   const handleUserName = (e) => {
     setFirstName(e.target.value);
   };
@@ -51,7 +47,7 @@ const AddUser = () => {
         <IconButton>
           <DeleteIcon
             onClick={() => {
-              dispatch(editUser({ firstName, lastName, email }));
+              dispatch(deleteUser({ firstName, lastName, email }));
               History.push("/admin/deleteUser");
             }}
           />
@@ -71,70 +67,62 @@ const AddUser = () => {
   const openButton = () => {
     return firstName !== "" && lastName !== "" && validEmail;
   };
-  return (
-    <div
-      style={{
-        marginTop: "10%",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <Grid>
-        <Grid align="left">
-          <h1>Add User</h1>
-        </Grid>
-        <TextField
-          style={fieldStyle}
-          label="First Name"
-          value={firstName}
-          placeholder="Enter First Name"
-          required
-          fullWidth
-          onChange={(e) => handleUserName(e)}
-        />
-        <TextField
-          style={fieldStyle}
-          label="Last Name"
-          value={lastName}
-          placeholder="Enter Last Name"
-          type="text"
-          fullWidth
-          required
-          onChange={handleLastName}
-        />
-        <TextField
-          style={fieldStyle}
-          label="Email"
-          value={email}
-          placeholder="Enter Email"
-          error={!validEmail}
-          helperText={validEmail ? "" : "Invalid Email "}
-          fullWidth
-          required
-          onChange={handleEmail}
-          onBlur={() => {
-            checkForValidEmail(email);
-          }}
-        />
 
-        <Button
-          disabled={!openButton()}
+  return (
+    <div className="container">
+      <form>
+        <div className="row">
+          <div className="col-25">
+            <label for="fname">First Name</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              className="inputForm"
+              id="fname"
+              value={firstName}
+              name="firstName"
+              onChange={handleUserName}
+            ></input>
+          </div>
+          <div className="col-25">
+            <label for="lname">Last Name</label>
+          </div>
+          <div className="col-75">
+            <input
+              className="inputForm"
+              type="text"
+              id="lname"
+              value={lastName}
+              name="lastName"
+              onChange={handleLastName}
+            ></input>
+          </div>
+          <div className="col-25">
+            <label for="emai">Email</label>
+          </div>
+          <div className="col-75">
+            <input
+              className="inputForm"
+              type="text"
+              id="email"
+              value={email}
+              name="email"
+              onChange={handleEmail}
+              onBlur={() => checkForValidEmail(email)}
+            ></input>
+            {validEmail ? "" : "Invalid Email"}
+          </div>
+        </div>
+      </form>
+      <div className="row">
+        <input
           type="submit"
-          color="primary"
-          variant="contained"
-          style={btnstyle}
+          value="Add User"
           onClick={handleRegister}
-        >
-          Add User
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={() => History.push("/admin/user")}
-        >
-          Go back
-        </Button>
-      </Grid>
+          disabled={!openButton()}
+        ></input>
+      </div>
     </div>
   );
 };

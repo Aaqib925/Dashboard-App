@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Grid, TextField, Button } from "@material-ui/core";
 import Store from "../../store/store";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -12,9 +11,7 @@ const EditUser = () => {
   const [email, setEmail] = useState(StoreData.email);
   const [validEmail, setValidEmail] = useState(true);
 
-  const btnstyle = { margin: "8px 0" };
   const dispatch = useDispatch();
-  const fieldStyle = { margin: "10px 0px" };
   const handleUserName = (e) => {
     setFirstName(e.target.value);
   };
@@ -59,69 +56,60 @@ const EditUser = () => {
     return firstName !== "" && lastName !== "" && validEmail;
   };
   return (
-    <div
-      style={{
-        marginTop: "10%",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <Grid>
-        <Grid align="left">
-          <h1>Edit User</h1>
-        </Grid>
-        <TextField
-          style={fieldStyle}
-          label="First Name"
-          value={firstName}
-          placeholder="Enter First Name"
-          required
-          fullWidth
-          onChange={(e) => handleUserName(e)}
-        />
-        <TextField
-          style={fieldStyle}
-          label="Last Name"
-          value={lastName}
-          placeholder="Enter Last Name"
-          type="text"
-          fullWidth
-          required
-          onChange={handleLastName}
-        />
-        <TextField
-          style={fieldStyle}
-          label="Email"
-          value={email}
-          placeholder="Enter Email"
-          error={!validEmail}
-          helperText={validEmail ? "" : "Invalid Email "}
-          fullWidth
-          required
-          onChange={handleEmail}
-          onBlur={() => {
-            checkForValidEmail(email);
-          }}
-        />
-
-        <Button
-          disabled={!openButton()}
+    <div className="container">
+      <form>
+        <div className="row">
+          <div className="col-25">
+            <label for="fname">First Name</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="fname"
+              className="inputForm"
+              value={firstName}
+              name="firstName"
+              onChange={handleUserName}
+            ></input>
+          </div>
+          <div className="col-25">
+            <label for="lname">Last Name</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="lname"
+              className="inputForm"
+              value={lastName}
+              name="lastName"
+              onChange={handleLastName}
+            ></input>
+          </div>
+          <div className="col-25">
+            <label for="emai">Email</label>
+          </div>
+          <div className="col-75">
+            <input
+              type="text"
+              id="email"
+              className="inputForm"
+              value={email}
+              name="email"
+              onChange={handleEmail}
+              onBlur={() => checkForValidEmail(email)}
+            ></input>
+            {validEmail ? "" : "Invalid Email"}
+          </div>
+        </div>
+      </form>
+      <div className="row">
+        <input
           type="submit"
-          color="primary"
-          variant="contained"
-          style={btnstyle}
-          onClick={handleRegister}
-        >
-          Confirm changes
-        </Button>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={() => History.push("/admin/user")}
-        >
-          Go back
-        </Button>
-      </Grid>
+          value="Edit User"
+          onClick={() => handleRegister()}
+          disabled={!openButton()}
+        ></input>
+      </div>
     </div>
   );
 };
